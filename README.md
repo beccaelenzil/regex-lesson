@@ -275,7 +275,7 @@ Write a regex pattern to match any alphanumeric digit like "a", "W", or "0"? Mak
   
   ```
   
-<details>
+</details>
 
 
 ---
