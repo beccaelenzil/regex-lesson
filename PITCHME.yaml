@@ -11,7 +11,7 @@ theme : simple
 # Theme-Override Setting
 # Doc: https://gitpitch.com/docs/settings/custom-theme
 #
-theme-override: assets/css/PITCHME.css
+#theme-override: assets/css/PITCHME.css
 
 #
 # Logo Setting
@@ -30,7 +30,7 @@ layout : left
 # Footnote Setting
 # Doc: https://gitpitch.com/docs/settings/footnote
 #
-footnote : "GitPitch - The Fastest Way From Idea To Presentation"
+footnote : "RegEx Lesson - Becca Elenzil - Ada Developers Academy - Tuesday March 5, 2019"
 
 #
 # Published Setting
@@ -42,6 +42,6 @@ published : true
 # Twitter Card Settings [Pro Only]
 # Doc: https://gitpitch.com/docs/settings/twitter-card
 #
-title : "GitPitch In 60 Seconds"
-description : "A short tutorial introducing the power and simplicity of GitPitch, the markdown presentation service on Git."
+title : "Regular Expressions"
+description : "An introduction to regular expressions in Ruby."
 thumbnail : https://gitpitch.com/gpimg/tutorial-thumb.png
