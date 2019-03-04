@@ -353,7 +353,7 @@ In that case you need the `^` character and the square brackets.
 ```
 ---
 
-## Practice
+## Practice with ``^```
 
 How can you write a regex using exclusion which would accept `dog`, `sog`, and `hog`, but exclude `bog`?
 
@@ -371,7 +371,7 @@ How can you write a regex using exclusion which would accept `dog`, `sog`, and `
 
 ---
 
-# Escape characters
+# Escape characters `\`
 * The backslash character `\` is used to indicate special characters
 	*  e.g. `+`, `*`, `.`
 * The backslash character `\` is also used as a shortcut for common classes of characters.
@@ -379,7 +379,7 @@ How can you write a regex using exclusion which would accept `dog`, `sog`, and `
 * Some common escape characters are summarized on the next slide.
 
 ---
-# Escape characters
+# Escape characters `\`
 
 Some examples include:
 
@@ -394,7 +394,7 @@ Some examples include:
 
 ---
 
-## Practical Example using escape characters:
+## Practical Example using escape `\` characters:
 
 -  Use regex to validate a US phone number in the format 
 	(ddd) ddd-dddd.
@@ -406,7 +406,7 @@ Some examples include:
 
 ---
 
-## Practice with escape characters (and more)
+## Practice with escape characters `\` (and more)
 
 Write a regex for any amount of US currency, for example it should match `$3.25`, `$102.73`, and `$0.25`.
 
@@ -425,7 +425,7 @@ Write a regex for any amount of US currency, for example it should match `$3.25`
 
 ---
 
-## Start and End of a String
+## Start `^` and End `$` of a String
 
 * By default a regex will match a string if any part of the string matches. 
 * Special characters match the start and end of strings:
@@ -442,7 +442,7 @@ Write a regex for any amount of US currency, for example it should match `$3.25`
 
 ---
 
-## Practice with start and end
+## Practice with start `^` and end `$`
 1. Let's return to the currency pattern. How can we change our regex pattern so that `$10.707` is not a match?
 
 2. Write a regex that will match only strings without any leading whitespace.
@@ -465,7 +465,7 @@ test_strings = ['ada', 'ada academy', 'ada ', ' ada', ' ada ', ' ']
 
 ---
 
-# Repetitions
+# Repetitions `{#}`
 
 * `*` and `+` characters allow a token to be repeated
 * Often you will want to limit a token to a specific number of repetitions.
@@ -480,7 +480,7 @@ test_strings = ['ada', 'ada academy', 'ada ', ' ada', ' ada ', ' ']
 
 ---
 
-## Practice with repetitions
+## Practice with repetitions `{#}`
 
 Use repetiions to rewrite the regex to validate a US phone number in the format (ddd) ddd-dddd.
 
