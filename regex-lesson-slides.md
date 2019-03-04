@@ -1,5 +1,3 @@
-<!-- $theme: default -->
-
 # Introduction to Regular Expressions
 
 ## Learning Goals
@@ -41,18 +39,18 @@ to this database| to this visualization
 
 # Introduction  
 
-* Identify and process patterns.
-* Validate format, e.g. Phone number or zip code.
-* Simplify code.
-* Useful across multiple languages.
+- Identify and process patterns.
+- Validate format, e.g. Phone number or zip code.
+- Simplify code.
+- Useful across multiple languages.
 
 ---
 # Regular Expression Basics
 
-* A regular expression is a data type, defining a pattern of characters, 
-	* just like `String` and `Integer` are data types
+- A regular expression is a data type, defining a pattern of characters, 
+	- just like `String` and `Integer` are data types
 
-* You can form a Regex variable like this:
+- You can form a Regex variable like this:
 
   
   ```ruby
