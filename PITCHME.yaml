@@ -24,7 +24,7 @@ logo-postion : top-left
 # Layout Setting
 # Doc: https://gitpitch.com/docs/settings/layout
 #
-layout : left
+layout : top-left
 
 #
 # Footnote Setting
