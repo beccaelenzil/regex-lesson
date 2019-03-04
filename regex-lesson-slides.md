@@ -63,7 +63,11 @@ to this database| to this visualization
 
 ---
 
-## pattern.match(string)
+# ```match``` method
+
+```ruby
+pattern = /ada/
+```
 
 * Test a String against the regular expression with the Regex's `match` method.  
 * `match` compares the string to the pattern, character-by-character.
@@ -79,7 +83,7 @@ to this database| to this visualization
 ### Example 
 <details>
   <summary>
-   Live code: pattern.match(string):
+   Live code: match method
   </summary>
 
 ```ruby
@@ -114,17 +118,21 @@ Rewrite the code snippet we just wrote together using the **ternary** operator.
 
 ---
 
-# =~ operator
+# =~ matching operator
 
 * Regular Expressions can also be compared using the `=~` operator.  
 * The `=~` operator returns the index of the first match in the string.
 * Both `match` and `=~` will return a truthy result if any substring matches the pattern. 
 
+---
+
+# =~ matching operator
+
 ### Example
 
 <details>
   <summary>
-   Live code: =~
+   =~ example
   </summary> 
 
 ```ruby
@@ -134,6 +142,7 @@ pattern =~ 'ada'	# => 0
 pattern =~ "learn at ada academy." # => 9 
 ```
 </details>
+
 
 ### Practice
 
@@ -168,22 +177,22 @@ What if you wanted to match either "Ada" or "ada"?
 * **character set** AKA **character class**: a way to tell the regex engine to match only one out of several characters.  
 * Define a character set with square brackets.  
 	* For example `/[Ss]/` will match both capital and lowercase S.  
-	* Combining the character set with the previous larger literal, `[Aa]da` will match both "Ada" and "ada".  
+	* Combining the character set with the previous larger literal, `[Aa]da` will match both "Ada" and "ada", but not "aDa".  
 
 * If you want the **whole** regex to ignore case you can use the `i` flag:
 
   <details>
     <summary>
-     Live code: Character Sets
+     Example: Character Sets
     </summary> 
 
   ```ruby
   pattern = /ada/i
-  # pattern = /[Aa][Dd][Aa]/
+  pattern = /[Aa][Dd][Aa]/
 
-  pattern =~ 'ADA' # => truthy
-  pattern =~ 'aDA' # => truthy
-  pattern =~ 'aDa' # => truthy
+  pattern =~ 'ADA' # => 0
+  pattern =~ 'aDA' # => 0
+  pattern =~ 'aDa' # => 0
   ```
   </details>
 
@@ -200,7 +209,7 @@ You can also adjust the character set to accept a range of characters.  For exam
 
 ---
 
-## Practice
+## Practice with character sets
 
 Write a regex pattern to match any alphanumeric digit like "a", "W", or "0"? Make sure your test to code.
 
@@ -234,6 +243,39 @@ Write a regex pattern to match any alphanumeric digit like "a", "W", or "0"? Mak
   ```
   </details>
 </details>
+
+
+---
+
+## More Practice with character sets
+
+1. Write a regex pattern to match a string that contains a vowel.
+2. Write a regex pattern that matches the string "gray" and "grey."
+3. Write a regex pattern that matches double digit numbers that are multiples of 5.
+4. Write a regex pattern that matches 3 letter words that rhymn with "bad."
+
+<details>
+  <summary>
+  Check your answers here
+  </summary>
+  
+  ```ruby
+  # 1) contains a vowel
+  pattern = /[aeiuo]/
+  
+  # 2) matches "gray" and "grey"
+  pattern = /gr[ae]y/
+  
+  # 3) multiples of 5
+  pattern = /[1-9][05]/
+  
+  # 4) 3 letter words that rhymn with "bad."
+  pattern = /[dfhlmprst]ad/
+  
+  ```
+  
+<details>
+
 
 ---
 
@@ -277,7 +319,7 @@ Write a regular expression to match a valid email of form `name@domain.tld`
 - Matches `dee@adadev.org`, `adalovelace@gmail.com`, `magictavern@puppies.supplies`
 - Rejects `dan@adadev.`, `charles.com`, `@adadev.org`, `sarah@.org`
 - Use `\.` for a literal period *(more on this later)*
-- Make sure to test your solution.
+- With your tablemates, decide on what consist a valid e-mail address and choose several test strings.
 <details>
   <summary>
   Check your answer here
@@ -312,7 +354,7 @@ In that case you need the `^` character and the square brackets.
 
 ## Practice
 
-How can you write a regex which would accept `dog`, `sog`, and `hog`, but exclude `bog`?
+How can you write a regex using exclusion which would accept `dog`, `sog`, and `hog`, but exclude `bog`?
 
 <details>
   <summary>
@@ -403,6 +445,7 @@ Write a regex for any amount of US currency, for example it should match `$3.25`
 Write a regex that will match only strings without any leading whitespace.
 - `"ada"`, `"ada academy"` and `"ada "` all match
 - `"  ada"`, `"  ada "` and `" "` do not match
+- *Hint: refer to the escape characters table*
 
 <details>
     <summary>
@@ -421,7 +464,7 @@ test_strings = ['ada', 'ada academy', 'ada ', ' ada', ' ada ', ' ']
 
 # Repetitions
 
-* `*` and `+` characters allow a token to be repeated, 
+* `*` and `+` characters allow a token to be repeated
 * Often you will want to limit a token to a specific number of repetitions.
 	* Can you think of an example?
 
