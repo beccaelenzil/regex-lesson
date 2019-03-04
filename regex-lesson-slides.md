@@ -76,28 +76,29 @@ pattern = /ada/
 * `match` will return a `MatchData` object if any substring matches the pattern, not necessarily the entire String.
 
 ---
+# ```match``` method
 
 **Let's make a ruby file `regex-lesson.rb`**
 
 
-### Example 
-<details>
-  <summary>
-   Live code: match method
-  </summary>
+  ### Example 
+  <details>
+    <summary>
+     Live code: match method
+    </summary>
 
-```ruby
-pattern = /ada/
+  ```ruby
+  pattern = /ada/
 
-if pattern.match("ada lovelace")
-  puts "The String has ada in it!"
-else
-  puts "It doesn't match"
-end
+  if pattern.match("ada lovelace")
+    puts "The String has ada in it!"
+  else
+    puts "It doesn't match"
+  end
 
-# => "The String has ada in it!"
-```
-</details>
+  # => "The String has ada in it!"
+  ```
+  </details>
 
 ### Practice
 
@@ -118,7 +119,7 @@ Rewrite the code snippet we just wrote together using the **ternary** operator.
 
 ---
 
-# =~ matching operator
+# `=~` matching operator
 
 * Regular Expressions can also be compared using the `=~` operator.  
 * The `=~` operator returns the index of the first match in the string.
@@ -126,7 +127,7 @@ Rewrite the code snippet we just wrote together using the **ternary** operator.
 
 ---
 
-# =~ matching operator
+# `=~` matching operator
 
 ### Example
 
@@ -162,7 +163,7 @@ pattern.match('hello world')
 </details>
 
 ---
-## Beyond the basics
+# Beyond the basics
 
 To match a pattern exactly, the regex needs to be more specific using special characters to indicate the start and end of the string. _More on this later..._
 
@@ -174,7 +175,7 @@ What if you wanted to match either "Ada" or "ada"?
 
 # Character Sets
 
-* **character set** AKA **character class**: a way to tell the regex engine to match only one out of several characters.  
+* **character set** AKA **character class**: a way to tell the regex engine to match one out of several characters.  
 * Define a character set with square brackets.  
 	* For example `/[Ss]/` will match both capital and lowercase S.  
 	* Combining the character set with the previous larger literal, `[Aa]da` will match both "Ada" and "ada", but not "aDa".  
@@ -198,7 +199,7 @@ What if you wanted to match either "Ada" or "ada"?
 
 ---
 
-## Character Sets (continued)
+# Character Sets (continued)
 
 You can also adjust the character set to accept a range of characters.  For example:  
 - `/[A-Z]/`  will accept a single character in the range A to Z (must be capitalized)
@@ -297,23 +298,23 @@ Character | Meaning            | Example
 ---
 Character | Meaning            | Example
 ---       | ---                | ---
-`*`       | Preceding token may occur **zero** or more times | `/ad*a/` matches `aa`, `ada`, and `adddda`<br><br>`/[0-9]*/` matches `1`, `345`, and the empty string<br><br>`.*` matches any string
+`*`       | Preceding token occurs **zero** or more times | `/ad*a/` matches `aa`, `ada`, and `adddda`<br><br>`/[0-9]*/` matches `1`, `345`, and the empty string<br><br>`.*` matches any string
 
 
 ---
 
 Character | Meaning            | Example
 ---       | ---                | ---
-`+`       | Preceding token may occur **one** or more times. | `/ad+a/` matches `ada` and `adddda` but **not** `aa`<br><br>`/[0-9]+/` matches `1` and `345` but **not** the empty string<br><br>`.+` matches any string **except for** the empty string
+`+`       | Preceding token occurs **one** or more times. | `/ad+a/` matches `ada` and `adddda` but **not** `aa`<br><br>`/[0-9]+/` matches `1` and `345` but **not** the empty string<br><br>`.+` matches any string **except for** the empty string
 
 ---
 
 Character | Meaning            | Example
 ---       | ---                | ---
-`?`       | Preceding token is optional (may occur zero or one times) | `/ad?a/` matches `aa` and `ada`<br><br>`/[0-9]/` matches `2` and the empty string but not `27` or `356`<br><br>`.?` matches any one character or the empty string
+`?`       | Preceding token is optional (occurs zero or one times) | `/ad?a/` matches `aa` and `ada`<br><br>`/[0-9]/` matches `2` and the empty string but not `27` or `356`<br><br>`.?` matches any one character or the empty string
 
 ---
-## Practice
+## Practice with quantifiers
 
 Write a regular expression to match a valid email of form `name@domain.tld`
 - Matches `dee@adadev.org`, `adalovelace@gmail.com`, `magictavern@puppies.supplies`
@@ -393,7 +394,7 @@ Some examples include:
 
 ---
 
-## Practical Example:
+## Practical Example using escape characters:
 
 -  Use regex to validate a US phone number in the format 
 	(ddd) ddd-dddd.
@@ -405,7 +406,7 @@ Some examples include:
 
 ---
 
-## Practice
+## Practice with escape characters (and more)
 
 Write a regex for any amount of US currency, for example it should match `$3.25`, `$102.73`, and `$0.25`.
 
@@ -427,22 +428,24 @@ Write a regex for any amount of US currency, for example it should match `$3.25`
 ## Start and End of a String
 
 * By default a regex will match a string if any part of the string matches. 
-* Sometimes you want your regex to be at the very beginning or very end of a string, or to match the whole string with nothing left over. 
-* In this case you can use the special characters `^` and `$`.
+* Special characters match the start and end of strings:
 
-* `^` indicates the beginning of a string
-	- `/^ada/` matches `ada` and `ada end` but not `start ada`
+	* `^` indicates the beginning of a string:    
+		* `/^ada/` matches `"ada"` and `"ada end"` but not `"start ada"`
 
-* `$` indicates the end of a string.
-	- `/ada$/` matches `ada` and `start ada` but not `ada end`
+	* `$` indicates the end of a string: 
+		* `/ada$/` matches `"ada"` and `"start ada"` but not `"ada end"`
 
-* It is common to combine `^` and `$` in order to match an entire string.
+
+*  To match the whole string with nothing left over you can use the special characters `^` and `$` at the beginning and end.
+	* ```/^ada$/``` only matches ```"ada"```  
 
 ---
 
-## Practice
+## Practice with start and end
+1. Let's return to the currency pattern. How can we change our regex pattern so that `$10.707` is not a match?
 
-Write a regex that will match only strings without any leading whitespace.
+2. Write a regex that will match only strings without any leading whitespace.
 - `"ada"`, `"ada academy"` and `"ada "` all match
 - `"  ada"`, `"  ada "` and `" "` do not match
 - *Hint: refer to the escape characters table*
@@ -477,7 +480,7 @@ test_strings = ['ada', 'ada academy', 'ada ', ' ada', ' ada ', ' ']
 
 ---
 
-## Practice
+## Practice with repetitions
 
 Use repetiions to rewrite the regex to validate a US phone number in the format (ddd) ddd-dddd.
 
