@@ -1,7 +1,7 @@
 # Introduction to Regular Expressions
 
 ## Learning Goals
-Be able to answer the following questions:  
+
 - What is a regular expression?
 - How can I write a regular expression to match on a specific pattern?
 - How can I use regular expressions to speed up my development workflow?
@@ -353,7 +353,7 @@ In that case you need the `^` character and the square brackets.
 ```
 ---
 
-## Practice with ``^```
+## Practice with `^`
 
 How can you write a regex using exclusion which would accept `dog`, `sog`, and `hog`, but exclude `bog`?
 
