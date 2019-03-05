@@ -410,7 +410,7 @@ Write a regex for any amount of US currency, for example it should match `$3.25`
 2. Write a regex that will match only strings without any leading whitespace.
 - `"ada"`, `"ada academy"` and `"ada "` all match
 - `"  ada"`, `"  ada "` and `" "` do not match
-- *Hint: refer to the escape characters table*
+- *Hint: refer to the [escape characters](#escape) table*
 
 <details>
     <summary>
