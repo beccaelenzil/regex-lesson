@@ -67,6 +67,8 @@ to this database| to this visualization
 
 ```ruby
 pattern = /ada/
+
+pattern.match("ada")
 ```
 
 * Test a String against the regular expression with the Regex's `match` method.  
@@ -75,13 +77,9 @@ pattern = /ada/
 	* returns `nil` if the String does not match the pattern.  
 * `match` will return a `MatchData` object if any substring matches the pattern, not necessarily the entire String.
 
----
-# ```match``` method
+### Example 
 
-**Let's make a ruby file `regex-lesson.rb`**
-
-
-  ### Example 
+#### **Let's make a ruby file `regex-lesson.rb`**
   <details>
     <summary>
      Live code: match method
@@ -100,9 +98,7 @@ pattern = /ada/
   ```
   </details>
 
-### Practice
-
-Rewrite the code snippet we just wrote together using the **ternary** operator.
+#### Rewrite the code snippet we just wrote together using the **ternary** operator.
 
 <details>
   <summary>
@@ -125,9 +121,6 @@ Rewrite the code snippet we just wrote together using the **ternary** operator.
 * The `=~` operator returns the index of the first match in the string.
 * Both `match` and `=~` will return a truthy result if any substring matches the pattern. 
 
----
-
-# `=~` matching operator
 
 ### Example
 
@@ -145,7 +138,7 @@ pattern =~ "learn at ada academy." # => 9
 </details>
 
 
-### Practice
+## Practice
 
 <details>
   <summary>
@@ -197,18 +190,13 @@ What if you wanted to match either "Ada" or "ada"?
   ```
   </details>
 
----
-
-# Character Sets (continued)
-
 You can also adjust the character set to accept a range of characters.  For example:  
+
 - `/[A-Z]/`  will accept a single character in the range A to Z (must be capitalized)
 - `/[0-9]/` will accept a single digit.  
 - `/[A-Za-z]/` or `/[A-Z]/i` will accept any alphabetic characters.
 
 <img src="images/regex1.png" width="300">
-
----
 
 ## Practice with character sets
 
@@ -245,8 +233,6 @@ Write a regex pattern to match any alphanumeric digit like "a", "W", or "0"? Mak
   </details>
 </details>
 
-
----
 
 ## More Practice with character sets
 
@@ -294,29 +280,15 @@ Write a regex pattern to match any alphanumeric digit like "a", "W", or "0"? Mak
 Character | Meaning            | Example
 ---       | ---                | ---
 `.`       | Any one character  | `/a.a/` matches `ada`, `ava`, and `a!a`
-
----
-Character | Meaning            | Example
----       | ---                | ---
 `*`       | Preceding token occurs **zero** or more times | `/ad*a/` matches `aa`, `ada`, and `adddda`<br><br>`/[0-9]*/` matches `1`, `345`, and the empty string<br><br>`.*` matches any string
-
-
----
-
-Character | Meaning            | Example
----       | ---                | ---
 `+`       | Preceding token occurs **one** or more times. | `/ad+a/` matches `ada` and `adddda` but **not** `aa`<br><br>`/[0-9]+/` matches `1` and `345` but **not** the empty string<br><br>`.+` matches any string **except for** the empty string
-
----
-
-Character | Meaning            | Example
----       | ---                | ---
 `?`       | Preceding token is optional (occurs zero or one times) | `/ad?a/` matches `aa` and `ada`<br><br>`/[0-9]/` matches `2` and the empty string but not `27` or `356`<br><br>`.?` matches any one character or the empty string
 
----
+
 ## Practice with quantifiers
 
 Write a regular expression to match a valid email of form `name@domain.tld`
+
 - Matches `dee@adadev.org`, `adalovelace@gmail.com`, `magictavern@puppies.supplies`
 - Rejects `dan@adadev.`, `charles.com`, `@adadev.org`, `sarah@.org`
 - Use `\.` for a literal period *(more on this later)*
@@ -351,7 +323,6 @@ In that case you need the `^` character and the square brackets.
 /[^0-9]/
 /Ada is number [^2-9^a-z^A-Z^0]/ 
 ```
----
 
 ## Practice with `^`
 
@@ -376,11 +347,6 @@ How can you write a regex using exclusion which would accept `dog`, `sog`, and `
 	*  e.g. `+`, `*`, `.`
 * The backslash character `\` is also used as a shortcut for common classes of characters.
 
-* Some common escape characters are summarized on the next slide.
-
----
-# Escape characters `\`
-
 Some examples include:
 
 | Escape Character |  |  
@@ -392,7 +358,6 @@ Some examples include:
 | `\D`  |  Any non-digit |
 | `\.`, `\+`, `\*`, etc.  | The literal character following the backslash, for example `\\` searches the String for a backslash, while `\.` looks for a period.  |
 
----
 
 ## Practical Example using escape `\` characters:
 
@@ -403,8 +368,6 @@ Some examples include:
 ![phone number](images/regex3.png)
 
   - This regular expression takes 3 digits inside parentheses followed by a space, then three digits a dash and then 4 digits.  We will see how to simplify this a bit later.
-
----
 
 ## Practice with escape characters `\` (and more)
 
@@ -425,7 +388,7 @@ Write a regex for any amount of US currency, for example it should match `$3.25`
 
 ---
 
-## Start `^` and End `$` of a String
+# Start `^` and End `$` of a String
 
 * By default a regex will match a string if any part of the string matches. 
 * Special characters match the start and end of strings:
@@ -440,7 +403,6 @@ Write a regex for any amount of US currency, for example it should match `$3.25`
 *  To match the whole string with nothing left over you can use the special characters `^` and `$` at the beginning and end.
 	* ```/^ada$/``` only matches ```"ada"```  
 
----
 
 ## Practice with start `^` and end `$`
 1. Let's return to the currency pattern. How can we change our regex pattern so that `$10.707` is not a match?
@@ -478,7 +440,6 @@ test_strings = ['ada', 'ada academy', 'ada ', ' ada', ' ada ', ' ']
 * A range of repetitions can also be repeated by using two parameters in the curly braces.  
 	* e.g. `/[abc]{3, 5}/` would allow the characters to repeat between 3 and 5 times.
 
----
 
 ## Practice with repetitions `{#}`
 
